@@ -1,13 +1,12 @@
 import { useState } from "react"
 
-export default function Cell ({data}) {
+export default function Cell ({data={}}) {
     
     data = {
-        date: '01/01/2001',
-        name: 'Project Name',
+        date: data.date ? data.date : '01/01/2001',
+        name: data.name ? data.name : 'Project Name',
         details: 'en savoir plus',
     }
-
 
     const lettersAndSymbols = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '!', '@', '#', '$', '%', '^', '&', '*', '-', '_', '+', '=', ';', ':', '<', '>', ',']
     
