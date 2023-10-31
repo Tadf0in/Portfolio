@@ -1,5 +1,6 @@
 import { useEffect } from "react"
-import Grid from "./components/Grid";
+import Grid from "./components/Grid/Grid"
+import './scroll.css'
 
 function App() {
 
@@ -22,7 +23,7 @@ function App() {
 
     window.addEventListener("scroll", onScroll)
     return () => window.removeEventListener("scroll", onScroll)
-  }, []);
+  }, [])
 
   return <>
     <div id="d1" className="part">

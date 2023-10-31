@@ -1,6 +1,8 @@
 :root {
     --background : #0C0B10;
     --grid-border: solid 1px gray;
+    --color-0: #ddd;
+    --color-1: #c89660;
 }
 html * {
     font-family: 'OCR A Std', sans-serif;
@@ -10,47 +12,32 @@ body {
     margin: 0;
     padding: 0;
 }
-.part {
-    max-height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#d1 {
-    position: fixed;
-    height: 100vh;
-    top: 0;
-}
+
 #d1 img {
     position: absolute;
     z-index: -1;
     height: 100%;
-    width: 100%;
+    min-width: 100vw;
+    width: calc(100vh * (16 / 9));
 }
-#d2 {
-    padding: 40px 0;
-    margin-top: 100vh;
-    background-color: var(--background);
-}
+
 #d2 .grid {
     width: 100%;
     height: 90%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto-fit, 1fr);
     border-bottom: var(--grid-border);
 }
 #d2 .cell {
-    height: calc(100vw / 3.5);
-    color: white;
+    color: var(--color-0);
     border-top: var(--grid-border);
     border-left: var(--grid-border);
     display: flex;
     flex-direction: column;
     justify-content: center;
     overflow: hidden;
+    padding: 40px;
 }
 #d2 .cell:nth-child(3n+1) {
     border-left: 0;
@@ -59,11 +46,16 @@ body {
     padding: 20px 40px;
     text-transform: uppercase;
 }
+#d2 .date::before {
+    content: '¤ ';
+    color: #c89660;
+}
 #d2 .name {
     font-size: 25px;
 }
 #d2 .details {
-    margin-top: 40px;
+    color: var(--color-1);
+    margin-top: 20px;
     cursor: pointer;
     transition: 0.5s;
 }
@@ -72,11 +64,4 @@ body {
 }
 #d2 .details:hover::before {
     content: '- ';
-}
-#d3 {
-    width: 100%;
-    /* position: absolute; */
-    bottom: 0;
-    height: 0;
-    background-color: yellow;
 }
