@@ -1,24 +1,41 @@
+body {
+    min-height: 200vh;
+}
 .part {
     max-height: 100vh;
     width: 100vw;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 #d1 {
     position: fixed;
     height: 100vh;
     top: 0;
+    display: flex;
+    align-items: center;
 }
 #d2 {
-    padding: 40px 0;
-    margin-top: 100vh;
     background-color: var(--background);
+}
+.step1 {
+    position: fixed;
+    top: unset;
+    bottom: 0;
+    min-height: unset;
+    height: 0;
+}
+.step2 {
+    position: static;
+    margin-top: 100vh;
+    bottom: unset;
+    min-height: 100vh;
+    height: unset;
 }
 #d3 {
     width: 100%;
     bottom: 0;
     height: 0;
     background-color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

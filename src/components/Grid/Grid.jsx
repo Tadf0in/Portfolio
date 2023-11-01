@@ -18,5 +18,8 @@ export default function Grid () {
         <Cell/>
         <Cell/>
         <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
     </div>
 }

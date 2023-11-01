@@ -22,7 +22,14 @@ function App() {
 
       title.style.fontSize = heightd1/10 + 'px'
       d1.style.height = heightd1 + 'px'
-      d2.style.top = d1.clientHeight + 'px'
+
+      if (window.scrollY < window.innerHeight) {
+        d2.className = 'part step1'
+        d2.style.height = window.innerHeight - d1.clientHeight + 'px'
+      } else {
+        d2.className = 'part step2'
+      }
+
       d3.style.height = window.scrollY - d2.clientHeight + 'px'
     }
 
@@ -32,6 +39,7 @@ function App() {
 
   return <>
     <div id="d1" className="part">
+
       <h1 id="title">
         { "LOUIS".split('').map((l, i) => 
           <Letter l={l} key={i}/>
@@ -43,9 +51,11 @@ function App() {
       </h1>
       <img src="https://static.vecteezy.com/system/resources/previews/005/178/732/non_2x/abstract-black-and-purple-sci-fi-technology-wallpaper-suitable-for-application-desktop-banner-background-print-backdrop-and-other-print-and-digital-work-related-vector.jpg"></img>
     </div>
+
     <div id="d2" className="part">
       <Grid />
     </div>
+
     <div id="d3" className="part">
       div3
     </div>
