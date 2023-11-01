@@ -2,10 +2,11 @@
     --background : #0C0B10;
     --grid-border: solid 1px gray;
     --color-0: #ddd;
-    --color-1: #c89660;
+    /* --color-1: #c89660; */
+    --color-1: #9832A4;
 }
 html * {
-    font-family: 'OCR A Std', sans-serif;
+    font-family: 'OCR A Std', sans-serif, monospace;
 }
 body {
     background-color: var(--background);
@@ -13,6 +14,12 @@ body {
     padding: 0;
 }
 
+#d1 {
+    font-size: calc(100vh / 6);
+    color: var(--color-0);
+    text-shadow: 20px 20px 20px black;
+    cursor: default;
+}
 #d1 img {
     position: absolute;
     z-index: -1;
@@ -48,7 +55,7 @@ body {
 }
 #d2 .date::before {
     content: '¤ ';
-    color: #c89660;
+    color: var(--color-1);
 }
 #d2 .name {
     font-size: 25px;

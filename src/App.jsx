@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import Grid from "./components/Grid/Grid"
 import './scroll.css'
+import Letter from "./components/Letter"
 
 function App() {
 
@@ -12,11 +13,15 @@ function App() {
 
   useEffect(() => {
     const onScroll = e => {
+      const title = document.getElementById('title')
       const d1 = document.getElementById('d1')
       const d2 = document.getElementById('d2')
       const d3 = document.getElementById('d3')
 
-      d1.style.height = window.innerHeight - window.scrollY < 0 ? 0 : window.innerHeight - window.scrollY + 'px'
+      let heightd1 = window.innerHeight - window.scrollY < 0 ? 0 : window.innerHeight - window.scrollY
+
+      title.style.fontSize = heightd1/10 + 'px'
+      d1.style.height = heightd1 + 'px'
       d2.style.top = d1.clientHeight + 'px'
       d3.style.height = window.scrollY - d2.clientHeight + 'px'
     }
@@ -27,8 +32,16 @@ function App() {
 
   return <>
     <div id="d1" className="part">
-      <h1>DIV 1</h1>
-      <img src="https://www.referenseo.com/wp-content/uploads/2019/03/image-attractive.jpg"></img>
+      <h1 id="title">
+        { "LOUIS".split('').map((l, i) => 
+          <Letter l={l} key={i}/>
+        )}
+        <br/>
+        { "AMOUDRUZ".split('').map((l, i) => 
+          <Letter l={l} key={i+5}/>
+        )}
+      </h1>
+      <img src="https://static.vecteezy.com/system/resources/previews/005/178/732/non_2x/abstract-black-and-purple-sci-fi-technology-wallpaper-suitable-for-application-desktop-banner-background-print-backdrop-and-other-print-and-digital-work-related-vector.jpg"></img>
     </div>
     <div id="d2" className="part">
       <Grid />
